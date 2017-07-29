@@ -1,6 +1,6 @@
 // global variables
 CoffeeClick = {
-
+  energy: 100
 }
 
 CoffeeClick.Boot = function(game) {}
