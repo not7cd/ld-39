@@ -4,13 +4,19 @@ class Coffee extends Phaser.Sprite {
 
     this._energy = 10;
 
-    image.events.onInputDown.add(action, this);
-
+    this.inputEnabled = true;
     this.game.stage.addChild(this);
+
+    console.log(this.events);
+    this.events.onInputDown.add(() => {
+      console.log('click');
+    }, this);
   }
 
   action() {
+    console.log("click");
     this.global.energy += 10
+    console.log(this.global.energy);
   }
 }
 

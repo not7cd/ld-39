@@ -9,6 +9,10 @@ class Preloader extends Phaser.State {
     console.log("start new state");
     this.state.start('CoffeeShop');
   }
+
+  update() {
+
+  }
 }
 
 export default Preloader
