@@ -16,9 +16,11 @@
       let game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game')
 
       game.state.add('Boot',  CoffeeClick.Boot)
-      // game.state.add('Preloader',  CoffeeClick.Preloader)
+      game.state.add('Preloader',  CoffeeClick.Preloader)
       // game.state.add('MainMenu',  CoffeeClick.MainMenu)
       // game.state.add('CoffeShop',  CoffeeClick.CoffeShop)
+
+      game.state.start('Boot')
 
     </script>
   </body>
