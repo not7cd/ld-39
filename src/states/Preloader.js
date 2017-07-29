@@ -1,4 +1,4 @@
-class Splash extends Phaser.State {
+class Preloader extends Phaser.State {
 
   preload() {
     this.load.image('shopBackground', 'assets/images/shop.png')
@@ -10,4 +10,4 @@ class Splash extends Phaser.State {
   }
 }
 
-export default Splash
+export default Preloader
