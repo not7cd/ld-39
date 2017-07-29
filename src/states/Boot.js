@@ -1,5 +1,11 @@
 class Boot extends Phaser.State {
   preload() {
+    // Set some globals
+    // NOTE: this wont work if player restarts form menu
+    this.game.global = {
+      energy: 100
+    }
+
     // Set 4x the scale
     this.game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
     this.game.scale.setUserScale(4, 4);
