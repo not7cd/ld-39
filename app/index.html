@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script src="scripts/phaser.min.js" charset="utf-8"></script>
+
+    <script src="scripts/Boot.js" charset="utf-8"></script>
+    <script src="scripts/Preload.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+      let game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game')
+
+      game.state.add('Boot',  CoffeeClick.Boot)
+      game.state.add('Preloader',  CoffeeClick.Preloader)
+      // game.state.add('MainMenu',  CoffeeClick.MainMenu)
+      // game.state.add('CoffeShop',  CoffeeClick.CoffeShop)
+
+    </script>
+  </body>
+</html>
