@@ -1,12 +1,14 @@
 import Coffee from 'objects/Coffee'
+import Clickable from 'abstracts/Clickable'
 
-class Machine extends Phaser.Sprite {
+class Machine extends Clickable {
   constructor(game, x, y) {
     super(game, x, y, 'machine')
 
-    this.inputEnabled = true;
     this.game.stage.addChild(this);
 
+    this.inputEnabled = true;
+    // this.events.onInputOver.add(this.action, this);
     this.events.onInputDown.add(this.action, this);
   }
 

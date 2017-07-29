@@ -1,4 +1,6 @@
-class Coffee extends Phaser.Sprite {
+import Clickable from 'abstracts/Clickable'
+
+class Coffee extends Clickable {
   constructor(game, x, y) {
     super(game, x, y, 'coffee');
 
