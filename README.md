@@ -1,71 +1,85 @@
-# Phaser + ES6 + Webpack.
-#### A bootstrap project to create games with Phaser + ES6 + Webpack.
+# Phaser ES6 Boilerplate
 
-![Phaser+ES6+Webpack](https://raw.githubusercontent.com/lean/phaser-es6-webpack/master/assets/images/phaser-es6-webpack.jpg)
+This is a non-professional Phaser template for building standard games using the 
+Phaser framework and ES6/2015.
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+The original idea was to create a small project that contained a robust gulpfile, 
+a basic example and *some* kind of folder structure.
 
+Codepen example: http://codepen.io/belohlavek/full/aORJVL
 
 ## Features
-- ESLINT with JavaScript Standard Style configuration
-- Next generation of Javascript
-- Webpack ready
-- Multiple browser testing
-- WebFont Loader
 
-## Typescript 
-If you need typescript support checkout the ```typescript``` branch. Thanks to @MatsMaker
+✔ Heavily commented, flexible Gulpfile (that means it uses [Gulp](http://gulpjs.com/)).
 
-# Setup
-To use this bootstrap you’ll need to install a few things before you have a working copy of the project.
+✔ [Browserify](https://github.com/substack/node-browserify) + [Babelify](https://github.com/babel/babelify) (Yes, it uses [Babel](https://babeljs.io/)).
 
-## 1. Clone this repo:
+✔ [Browsersync](http://www.browsersync.io/) = Livereload + Mobile debugging with [Weinre](http://people.apache.org/~pmuellr/weinre-docs/latest/).
 
-Navigate into your workspace directory.
+✔ Example: Extending Phaser & modular development.
 
-Run:
+✔ Production ([UglifyJS](https://github.com/mishoo/UglifyJS2)) and Development ([Sourcemaps](https://developer.chrome.com/devtools/docs/javascript-debugging#source-maps)) builds.
 
-```git clone https://github.com/lean/phaser-es6-webpack.git```
+✔ Did I say ES6? Well.. some ES7 too! ([See Experimental features](https://babeljs.io/docs/usage/experimental/)).
 
-## 2. Install node.js and npm:
+## Why?
 
-https://nodejs.org/en/
+ES6 [is the future](http://www.ecma-international.org/publications/standards/Ecma-262.htm)!
 
+Anyways, I've been using ES6 for a while in other personal projects, and I currently prefer it over ES5 and Typescript. 
+I found the new Class-based syntax to be a better fit for my developer needs. Unfortunately, the best way to access
+all the features of the new standard is by using a transpiler. This boilerplate is an attempt to reduce the time spent 
+configurating a project and installing dependencies by providing a template that can work as an scaffold for any Phaser game.
 
-## 3. Install dependencies (optionally you could install [yarn](https://yarnpkg.com/)):
+## Usage
 
-Navigate to the cloned repo’s directory.
+You need [Node.js and npm](https://nodejs.org/). You should also have git installed, but it's not mandatory.
 
-Run:
+Clone the repository (or download the ZIP file)
 
-```npm install``` 
+`git clone https://github.com/belohlavek/phaser-es6-boilerplate.git`
 
-or if you choose yarn, just run ```yarn```
+Install dependencies
 
-## 4. Run the development server:
+`npm install`
 
-Run:
+Run a development build...
 
-```npm run dev```
+`npm start`
 
-This will run a server so you can run the game in a browser.
+...or a production build.
 
-Open your browser and enter localhost:3000 into the address bar.
+`npm run production`
 
-Also this will start a watch process, so you can change the source and the process will recompile and refresh the browser
+Development builds will copy `phaser.min.js` together with `phaser.map` and `phaser.js`
+Your ES6 code will be transpiled into ES5 and concatenated into a single file.
+A sourcemap for your code will also be included (by default `game.map.js`).
 
+Production builds will only copy `phaser.min.js`. Your ES6 code will be transpiled and
+minified using UglifyJS.
 
-## Build for deployment:
+Any modification to the files inside the `./src` and `./static` folder will trigger a full page reload.
 
-Run:
+If you modify the contents of other files, please manually restart the server.
 
-```npm run deploy```
+### Modifying `gulpfile.js`
 
-This will optimize and minimize the compiled bundle.
+See [gulpfile.md](https://github.com/belohlavek/phaser-es6-boilerplate/blob/master/gulpfile.md)
 
-## Credits
-Big thanks to this great repos:
+## Changelog (1.0.2)
 
-https://github.com/belohlavek/phaser-es6-boilerplate
+* Faster builds (no need to copy static files every time).
+* Live reload now works with static files too!
 
-https://github.com/cstuncsik/phaser-es6-demo
+## Contributing
+
+Please report any bugs or add requests on [Github Issues](https://github.com/belohlavek/phaser-es6-boilerplate/issues).
+
+## About me
+
+My name is Daniel Belohlavek: I'm from Buenos Aires, Argentina and I love to derp around and code
+silly snippets. You can follow me on Twitter [@dbhvk](http://twitter.com/dbhvk)
+
+## License
+
+This project is released under the MIT License.
