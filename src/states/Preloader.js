@@ -1,7 +1,8 @@
 class Preloader extends Phaser.State {
 
   preload() {
-    this.load.image('shopBackground', 'assets/images/shop.png')
+    this.load.image('shopBackground', 'assets/images/shop.png');
+    this.load.image('coffee', 'assets/images/coffee.png');
   }
 
   create() {
