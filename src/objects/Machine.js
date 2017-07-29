@@ -15,11 +15,13 @@ class Machine extends Clickable {
   action() {
     this.game.global.energy -= 5;
     console.log(this.game.global.energy);
-    let rectangle = new Phaser.Rectangle(80, 40, 20, 60);
+    let rectangle = new Phaser.Rectangle(85, 40, 15, 60);
     let p = new Phaser.Point()
     rectangle.random(p)
     p.floor()
-    new Coffee(this.game, p.x, p.y)
+    let coffee = new Coffee(this.game, p.x, p.y)
+    // TODO: change this global nonsense
+    this.game.global.coffeeCounter.add(coffee)
   }
 }
 

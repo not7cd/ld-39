@@ -3,7 +3,8 @@ class Boot extends Phaser.State {
     // Set some globals
     // NOTE: this wont work if player restarts form menu
     this.game.global = {
-      energy: 100
+      energy: 100,
+      coffeeCounter: null
     }
 
     // Set 4x the scale
