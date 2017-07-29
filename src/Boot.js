@@ -1,4 +1,6 @@
-// global variables
+// // global variables
+//
+//
 CoffeeClick = {
   energy: 100
 }
@@ -7,9 +9,16 @@ CoffeeClick.Boot = function(game) {}
 
 CoffeeClick.Boot.prototype = {
   preload: function() {
+
+    game.global = {
+      energy: 100
+    }
+
     // TODO: Loading splash
     this.load.image('preloaderSplash', 'images/preloadSplash.png')
     this.load.image('preloaderBar', 'images/preloadBar.png')
+
+    console.log(game);
   },
 
   create: function() {
