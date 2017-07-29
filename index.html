@@ -10,7 +10,7 @@
     <script src="node_modules/phaser-ce/build/phaser.min.js" charset="utf-8"></script>
 
     <script src="src/Boot.js" charset="utf-8"></script>
-    <!-- <script src="scripts/Preload.js" charset="utf-8"></script> -->
+    <script src="src/Preloader.js" charset="utf-8"></script>
 
     <script type="text/javascript">
       let game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game')
@@ -18,7 +18,7 @@
       game.state.add('Boot',  CoffeeClick.Boot)
       game.state.add('Preloader',  CoffeeClick.Preloader)
       // game.state.add('MainMenu',  CoffeeClick.MainMenu)
-      // game.state.add('CoffeShop',  CoffeeClick.CoffeShop)
+      game.state.add('CoffeShop',  CoffeeClick.CoffeShop)
 
       game.state.start('Boot')
 
