@@ -15,11 +15,11 @@ CoffeeClick.Preloader.prototype = {
     this.preloaderBar = this.add.sprite(0, 100, 'preloaderBar')
     this.load.setPreloadSprite(this.preloaderBar)
     // Load thingies
-
+    this.load.image('shopBackground', 'images/shop.png')
   },
 
   create: function() {
-    // this.state.start('CoffeeShop')
+    this.state.start('CoffeeShop')
   },
 
   update: function() {
