@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div id="game"></div>
-    <!-- lazy way, ftw -->
-    <script src="node_modules/phaser-ce/build/phaser.min.js" charset="utf-8"></script>
+<html lang="en">
 
-    <script src="src/Boot.js" charset="utf-8"></script>
-    <script src="src/Preloader.js" charset="utf-8"></script>
-    <script src="src/CoffeeShop.js" charset="utf-8"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser - ES6 - Webpack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
 
-    <script type="text/javascript">
-      let game = new Phaser.Game(200, 150, Phaser.AUTO, 'game')
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
 
-      game.state.add('Boot',  CoffeeClick.Boot)
-      game.state.add('Preloader',  CoffeeClick.Preloader)
-      // game.state.add('MainMenu',  CoffeeClick.MainMenu)
-      game.state.add('CoffeeShop',  CoffeeClick.CoffeeShop)
+<body>
 
-      game.state.start('Boot')
+    <div id="content"></div>
+    <script src="dist/vendor.bundle.js"></script>
+    <script src="dist/bundle.js"></script>
 
-    </script>
-  </body>
+</body>
+
 </html>
