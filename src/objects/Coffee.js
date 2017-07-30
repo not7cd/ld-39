@@ -4,7 +4,7 @@ class Coffee extends Clickable {
   constructor(game, x, y) {
     super(game, x, y, 'coffee')
 
-    this._energy = 10
+    this._energy = 16
     this._damage = 2
     this._timeCost = 5 * 60 // [s]
     // this._cost = 3

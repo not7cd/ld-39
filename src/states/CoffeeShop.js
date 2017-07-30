@@ -6,6 +6,14 @@ import CustomerFactory from 'objects/CustomerFactory'
 class CoffeeShop extends Phaser.State {
 
   create() {
+    this.game.global = {
+      maxEnergy: 100,
+      energy: 100,
+      money: 500,
+      damage: 0,
+      time: 0
+    }
+
     let background = this.add.sprite(0, 0, 'shopBackground');
     let machine = new Machine(this.game, 120, 0)
 
@@ -19,20 +27,20 @@ class CoffeeShop extends Phaser.State {
 
     // STATS
     this.bottomPanel = this.add.sprite(0, 0, 'bottomPanel')
-    this.energyText = this.game.add.bitmapText(7, 116, 'panelFont', 'Energy', 5)
-    this.moneyText = this.game.add.bitmapText(7 + 100, 116 + 10, 'panelFont', 'Cash: ' + this.game.global.money, 5)
-    this.dayText = this.game.add.bitmapText(7, 116 + 10, 'panelFont', 'Day: 1', 5)
+    this.panelText = this.game.add.bitmapText(7, 116, 'panelFont', 'Energy\nDay 1\tCash', 5)
+    // this.moneyText = this.game.add.bitmapText(7 + 100, 116 + 10, 'panelFont', 'Cash: ' + this.game.global.money, 5)
+    // this.dayText = this.game.add.bitmapText(7, 116 + 10, 'panelFont', 'Day: 1', 5)
     this.energyBar = this.add.sprite(37, 116, 'energyBar')
   }
   update() {
-    if(Math.random() > 0.99) {
+    if(Math.random() > 0.96) {
       console.log('createCustomer')
       this.customerFactory.createCustomer(this.game)
     }
 
-    this.dayText.text = 'Day 1'
+    // this.dayText.text = 'Day 1'
     // this.energyText.text = `Energy ${this.game.global.energy}`
-    this.moneyText.text = `Cash ${this.game.global.money}`
+    this.panelText.text = `Energy\nDay 1 \tTime ${this.game.global.time/60}\tCash ${this.game.global.money}`
 
 
     this.game.debug.text(this.game.global.energy, 10, 20);
