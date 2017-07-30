@@ -12,14 +12,14 @@ class CoffeeShop extends Phaser.State {
       energy: 100.0,
       money: 500,
       damage: 0,
-      timePassed: 0.0,
+      timePassed: 6 * 60 * 60,
       timeToPass: 0.0
     }
 
     this.game.time.events.loop(Phaser.Timer.SECOND * 3, () => this.game.global.timeToPass += 60, this)
 
     let background = this.add.sprite(0, 0, 'shopBackground');
-    this.game.machine = new Machine(this.game, 120, 0)
+    this.machine = new Machine(this.game, 120, 0)
 
     this.game.global.coffeeCounter = this.game.add.group()
     this.game.global.customerQueue = this.game.add.group()
@@ -37,18 +37,12 @@ class CoffeeShop extends Phaser.State {
   update() {
     this.passTime()
 
-    // this.dayText.text = 'Day 1'
-    // this.energyText.text = `Energy ${this.game.global.energy}`
+    this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING)
+    this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING)
 
+    this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20)
 
-
-    this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20);
-    // this.game.debug.text(this.game.global.money, 10, 30);
-    this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING);
-    this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING);
-
-    // this.game.global.player.update()
-
+    // Win/Lose conditions
     if(this.game.global.energy < 0) {
       this.state.start('GameOver')
     }

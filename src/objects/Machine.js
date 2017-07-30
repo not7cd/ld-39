@@ -6,9 +6,8 @@ class Machine extends Clickable {
     super(game, x, y, 'machine')
 
     this._energyCost = 3
-    this._moneyCost = 3
+    this._moneyCost = 2
     this._timeCost = 5
-
 
     this.game.stage.addChild(this)
   }
