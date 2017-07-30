@@ -21,7 +21,7 @@ class Machine extends Clickable {
       this.addTimeToPass(this._timeCost)
 
       // console.log(this.game.global.energy)
-      let rectangle = new Phaser.Rectangle(85, 40, 15, 60)
+      let rectangle = new Phaser.Rectangle(85, 50, 15, 40)
       let p = new Phaser.Point()
       rectangle.random(p)
       p.floor()

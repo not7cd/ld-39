@@ -12,7 +12,7 @@ class GameOver extends Phaser.State {
 
     if(this.game.global.energy < 0) {
       massage.text = `You died from exhaustion\nBut you earned $${this.game.global.money-100}... yay!\n${this.game.global.damage} coffees drunk`
-    } else if(this.game.global.energy > 2300) {
+    } else if(this.game.global.energy > 200) {
       massage.text = `You overdosed\nBut you earned $${this.game.global.money-100}... yay!\nOnly ${this.game.global.damage} coffees drunk`
     } else if(this.game.global.money < 100) {
       massage.text = `You lost all money\nYou are fired!\n${this.game.global.damage} coffees drunk\nYour live length expentancy\n after this day is ${Math.floor(16 + 80 * 1/Math.sqrt(this.game.global.damage))} years!`
