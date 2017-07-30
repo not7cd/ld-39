@@ -6,7 +6,7 @@ class CustomerFactory {
   }
 
   createCustomer(game) {
-    let rectangle = new Phaser.Rectangle(5, 40, 60, 60)
+    let rectangle = new Phaser.Rectangle(5, 50, 60, 60)
     let p = new Phaser.Point()
     rectangle.random(p)
     p.floor()

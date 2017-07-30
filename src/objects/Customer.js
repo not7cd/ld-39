@@ -14,6 +14,7 @@ class Customer extends Clickable {
   }
 
   action() {
+    this.game.global.player.moveTo(112, this.y)
     let drink = this.game.global.coffeeCounter.getFirstAlive()
     if(drink) {
       this.game.global.energy -= this._energy

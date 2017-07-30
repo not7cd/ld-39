@@ -34,6 +34,11 @@ class Player extends Phaser.Sprite {
     this.floorPosition()
   }
 
+  moveTo(x, y) {
+    this.x = x
+    this.y = y
+  }
+
 
   moveToPointer() {
     // move to pointer

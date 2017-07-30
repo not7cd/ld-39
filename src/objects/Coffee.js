@@ -13,6 +13,7 @@ class Coffee extends Clickable {
   }
 
   action() {
+    this.game.global.player.moveTo(112, this.y + 20)
     this.game.global.energy += this._energy
     this.game.global.damage += this._damage
     this.game.global.time += this._timeCost

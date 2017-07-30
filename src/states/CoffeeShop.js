@@ -40,11 +40,11 @@ class CoffeeShop extends Phaser.State {
 
     // this.dayText.text = 'Day 1'
     // this.energyText.text = `Energy ${this.game.global.energy}`
-    this.panelText.text = `Energy\nDay 1 \tTime ${this.game.global.time/60}\tCash ${this.game.global.money}`
+    this.panelText.text = `Energy\nDay 1 \t\t   Time ${this.game.global.time/60}\t\t   Cash ${this.game.global.money}`
 
 
-    this.game.debug.text(this.game.global.energy, 10, 20);
-    this.game.debug.text(this.game.global.money, 10, 30);
+    this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20);
+    // this.game.debug.text(this.game.global.money, 10, 30);
     this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING);
     this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING);
 
