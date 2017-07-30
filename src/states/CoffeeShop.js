@@ -43,6 +43,10 @@ class CoffeeShop extends Phaser.State {
     this.energyBar.scale.setTo(this.game.global.energy / this.game.global.maxEnergy, 1)
 
     this.game.global.player.update()
+
+    if(this.game.global.energy < 0) {
+      this.state.start('GameOver')
+    }
   }
 }
 

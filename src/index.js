@@ -2,7 +2,7 @@ import Boot from 'states/Boot';
 import Preloader from 'states/Preloader';
 
 import CoffeeShop from 'states/CoffeeShop'
-import GameState from 'states/GameState';
+import GameOver from 'states/GameOver';
 
 
 class Game extends Phaser.Game {
@@ -12,7 +12,7 @@ class Game extends Phaser.Game {
     this.state.add('Boot', Boot, false);
     this.state.add('Preloader', Preloader, false);
     this.state.add('CoffeeShop', CoffeeShop, false);
-    this.state.add('GameState', GameState, false);
+    this.state.add('GameOver', GameOver, false);
     this.state.start('Boot');
   }
 
