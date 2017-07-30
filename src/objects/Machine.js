@@ -7,6 +7,7 @@ class Machine extends Clickable {
 
     this._energyCost = 3
     this._moneyCost = 3
+    this._timeCost = 5
 
 
     this.game.stage.addChild(this)
@@ -16,6 +17,7 @@ class Machine extends Clickable {
     this.game.global.player.moveTo(this.game.input.x + 20, 63)
     this.game.global.energy -= this._energyCost
     this.game.global.money -= this._moneyCost
+    this.game.global.timeToPass += this._timeCost * 60 //[s]
 
     // console.log(this.game.global.energy)
     let rectangle = new Phaser.Rectangle(85, 40, 15, 60)

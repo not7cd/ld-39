@@ -16,7 +16,7 @@ class Coffee extends Clickable {
     this.game.global.player.moveTo(112, this.y + 20)
     this.game.global.energy += this._energy
     this.game.global.damage += this._damage
-    this.game.global.time += this._timeCost
+    this.game.global.timeToPass += this._timeCost
     // TODO: Pokazuj odjety koszt
     // console.log(this.game.global.energy)
     this.destroy()
