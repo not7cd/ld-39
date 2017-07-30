@@ -8,6 +8,8 @@ class Customer extends Clickable {
     this._pays = 7
     this._timeCost = 1 * 60 // [s]
 
+    this.anchor.set(0.5, 1);
+
     this.game.stage.addChild(this)
   }
 

@@ -1,6 +1,6 @@
 import Coffee from 'objects/Coffee'
 import Machine from 'objects/Machine'
-import Customer from 'objects/Customer'
+import Player from 'objects/Player'
 import CustomerFactory from 'objects/CustomerFactory'
 
 class CoffeeShop extends Phaser.State {
@@ -11,6 +11,7 @@ class CoffeeShop extends Phaser.State {
 
     this.game.global.coffeeCounter = this.game.add.group()
     this.game.global.customerQueue = this.game.add.group()
+    this.game.global.player = new Player(this.game)
 
     this.customerFactory = new CustomerFactory()
     this.customerFactory.createCustomer(this.game)
@@ -30,6 +31,8 @@ class CoffeeShop extends Phaser.State {
     this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING);
 
     this.energyBar.scale.setTo(this.game.global.energy / this.game.global.maxEnergy, 1)
+
+    this.game.global.player.update()
   }
 }
 
