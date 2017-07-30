@@ -8,10 +8,15 @@ class Customer extends Clickable {
     this._bmd = 'customer_w'
     this.setType()
     this._energy = 3
-    this._pays = 7
+    this._pays = 12
     this._timeCost = 1 * 60 // [s]
-    this._waitTime = 60 * 60
+    this._waitTime = game.rnd.integerInRange(30, 90) * 60
     this._enterTime = game.global.timePassed
+
+    this.emitter = game.add.emitter(0, 0, 100);
+
+    this.emitter.makeParticles('cash');
+    this.emitter.gravity = 200;
 
     this.anchor.set(0.5, 1)
 
@@ -26,9 +31,12 @@ class Customer extends Clickable {
     if(drink) {
       this.game.global.energy -= this._energy
       this.game.global.timeToPass += this._timeCost
-      this.game.global.money += this._pays
-      drink.destroy();
+      let pay = this._pays - this._state
+      this.game.global.money += pay
+      drink.destroy()
+      this.particle(4 - this._state)
       this.destroy()
+
     }
 
   }
@@ -44,18 +52,25 @@ class Customer extends Clickable {
   }
 
   recolorOver() {
-    console.log(((this.game.global.timePassed - this._enterTime) / this._waitTime) * 100,
-      Math.floor(((this.game.global.timePassed - this._enterTime) / this._waitTime) * 4));
-
-    console.log(this._type, this._state);
-    // this.loadTexture(this._bmd)
-    // this.setType()
+    // console.log(((this.game.global.timePassed - this._enterTime) / this._waitTime) * 100,
+    //   Math.floor(((this.game.global.timePassed - this._enterTime) / this._waitTime) * 4));
+    // console.log(this._type, this._state);
+    // console.log(this.frame);
+    this.loadTexture(this._bmd)
+    this.setType()
   }
 
   setType() {
-    if(this._type) {
+    if(typeof this._type !== 'undefined') {
       this.frame = this._type + this._state
     }
+  }
+
+  particle(amount) {
+    this.emitter.x = this.centerX;
+    this.emitter.y = this.centerY;
+
+    this.emitter.start(true, 1000, null, amount);
   }
 }
 

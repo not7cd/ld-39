@@ -44,6 +44,7 @@ class CoffeeShop extends Phaser.State {
 
     // Win/Lose conditions
     if(this.game.global.energy < 0) {
+      this.machine.destroy()
       this.state.start('GameOver')
     }
   }

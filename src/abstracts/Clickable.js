@@ -14,6 +14,7 @@ class Clickable extends Phaser.Sprite {
     this.events.onInputOver.add(this.recolorOver, this)
     this.events.onInputOut.add(this.recolorOut, this)
     this.events.onInputDown.add(this.action, this)
+    // this.events.onInputDown.add(this.particle, this);
   }
 
   // action() {}
@@ -33,6 +34,11 @@ class Clickable extends Phaser.Sprite {
     }
   }
 
+  addTimeToPass(time) {
+    return this.game.global.timeToPass += this._timeCost / 2 * (this.game.global.energy / 100)
+  }
+
+  particle() {}
 
 }
 

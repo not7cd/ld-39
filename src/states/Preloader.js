@@ -5,6 +5,7 @@ class Preloader extends Phaser.State {
     this.load.image('coffee', 'assets/images/coffee.png')
     this.load.image('machine', 'assets/images/machine1.png')
     this.load.image('player', 'assets/images/coffee-guy.png')
+    this.load.image('cash', 'assets/images/cash.png')
     this.load.spritesheet('customer', 'assets/images/customers16x36.png', 16, 36)
     this.load.image('customers', 'assets/images/customers16x36.png')
 
