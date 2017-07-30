@@ -20,10 +20,19 @@ class Clickable extends Phaser.Sprite {
 
   recolorOver() {
     this.loadTexture(this._bmd)
+    // this.setType()
   }
   recolorOut() {
     this.loadTexture(this._key)
+    // this.setType()
   }
+
+  setType() {
+    if(this._type) {
+      this.frame = this._type
+    }
+  }
+
 
 }
 

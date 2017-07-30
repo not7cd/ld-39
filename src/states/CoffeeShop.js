@@ -40,7 +40,7 @@ class CoffeeShop extends Phaser.State {
     this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING)
     this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING)
 
-    this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20)
+    // this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20)
 
     // Win/Lose conditions
     if(this.game.global.energy < 0) {
@@ -55,10 +55,8 @@ class CoffeeShop extends Phaser.State {
       // console.log(minutesPassed++)
       this.game.global.timeToPass -= CYCLE
       this.game.global.timePassed += CYCLE
-      if(Math.random() > 0.9) {
-        // console.log('createCustomer')
-        this.customerFactory.createCustomer(this.game)
-      }
+      this.customerFactory.inviteCustomer(this.game, this.game.global.timePassed * Phaser.Timer.SECOND)
+
 
     }
   }
