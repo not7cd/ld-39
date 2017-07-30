@@ -4,8 +4,8 @@ class Coffee extends Clickable {
   constructor(game, x, y) {
     super(game, x, y, 'coffee')
 
-    this._energy = 16
-    this._damage = 2
+    this._energy = 13
+    this._damage = 1
     this._timeCost = 10 * 60 // [s]
     // this._cost = 3
 
@@ -16,7 +16,7 @@ class Coffee extends Clickable {
     this.game.global.player.moveTo(112, this.y + 20)
     this.game.global.energy += this._energy
     this.game.global.damage += this._damage
-    this.game.global.timeToPass += this._timeCost
+    this.addTimeToPass(this._timeCost)
     // TODO: Pokazuj odjety koszt
     // console.log(this.game.global.energy)
     this.destroy()

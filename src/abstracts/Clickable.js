@@ -35,7 +35,9 @@ class Clickable extends Phaser.Sprite {
   }
 
   addTimeToPass(time) {
-    return this.game.global.timeToPass += this._timeCost / 2 * (this.game.global.energy / 100)
+    let timeToPass = (time) / (this.game.global.energy / 100)
+    console.log(timeToPass);
+    this.game.global.timeToPass += timeToPass
   }
 
   particle() {}

@@ -24,7 +24,7 @@ class StatsPanel extends Phaser.Group {
     const day = timedate.getDate()
     // console.log(timedate.UTC())
 
-    this.panelText.text = `Energy\nDay ${day} \t\t   Time ${time}\t\t   Cash ${this.game.global.money}`
+    this.panelText.text = `Energy\nDay ${day} \t\t   Time ${time}\t\t   Cash $${this.game.global.money}`
     // console.log(this.energyBar.width * this.game.global.energy / 100);
     this.cropRect.width = this._fullEnergyBarWidth * this.game.global.energy / 100
     this.energyBar.updateCrop();

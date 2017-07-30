@@ -10,7 +10,7 @@ class CoffeeShop extends Phaser.State {
     this.game.global = {
       maxEnergy: 100,
       energy: 100.0,
-      money: 500,
+      money: 100,
       damage: 0,
       timePassed: 6 * 60 * 60,
       timeToPass: 0.0
@@ -43,7 +43,7 @@ class CoffeeShop extends Phaser.State {
     // this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20)
 
     // Win/Lose conditions
-    if(this.game.global.energy < 0) {
+    if(this.game.global.energy < 0 || this.game.global.timePassed > 86400) {
       this.machine.destroy()
       this.state.start('GameOver')
     }

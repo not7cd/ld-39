@@ -3,11 +3,18 @@
 class GameOver extends Phaser.State {
 
   create() {
-    let title = this.game.add.bitmapText(15, 30, 'panelFont', 'GAME OVER!\nYou died, from exhaustion!', 5)
-    let restart = this.game.add.bitmapText(15, 100, 'panelFont', 'New Game', 5)
+    let title = this.game.add.bitmapText(20, 15, 'panelFont', `GAME OVER!\n`, 5)
+    let massage = this.game.add.bitmapText(15, 40, 'panelFont', ``, 5)
+    let restart = this.game.add.bitmapText(15, 130, 'panelFont', 'New Game', 5)
     restart.inputEnabled = true
     restart.input.useHandCursor = true;
     restart.events.onInputDown.add(this.newGame, this)
+
+    if(this.game.global.energy < 0) {
+      massage.text = `You died from exhaustion\nBut you earned $${this.game.global.money-100}... yay!\n${this.game.global.damage} coffees drunk`
+    } else {
+      massage.text = `You survived that day\nBut you only earned $${this.game.global.money-100}!\n${this.game.global.damage} coffees drunk\nYour live length expentancy\n after this day is ${Math.floor(16 + 80 * 1/Math.sqrt(this.game.global.damage))} years!`
+    }
 
     this.game.global.player.destroy()
   }
