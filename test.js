@@ -5,6 +5,8 @@ const DAY = 24 * HOUR
 const RATIO = Math.PI * 2 / DAY
 const PHASE_SHIFT = 12 * HOUR * RATIO
 
+console.log(DAY);
+
 function intensity(miliseconds) {
   let time = miliseconds * RATIO
   let x = Math.cos(time + PHASE_SHIFT) * 0.4

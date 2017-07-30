@@ -16,6 +16,16 @@ class CoffeeShop extends Phaser.State {
       timeToPass: 0.0
     }
 
+    this.game.global.mS = this.game.add.audio('machineSound');
+    this.game.global.sS = this.game.add.audio('sellSound');
+    this.game.global.dS = this.game.add.audio('drinkSound');
+
+    //  Being mp3 files these take time to decode, so we can't play them instantly
+    //  Using setDecodedCallback we can be notified when they're ALL ready for use.
+    //  The audio files could decode in ANY order, we can never be sure which it'll be.
+
+    // this.game.sound.setDecodedCallback([mS, sS, dS], start, this);
+
     this.game.time.events.loop(Phaser.Timer.SECOND * 3, () => this.game.global.timeToPass += 60, this)
 
     let background = this.add.sprite(0, 0, 'shopBackground');
@@ -43,7 +53,7 @@ class CoffeeShop extends Phaser.State {
     // this.game.debug.text([this.game.input.x, this.game.input.y], 10, 20)
 
     // Win/Lose conditions
-    if(this.game.global.energy < 0 || this.game.global.timePassed > 86400) {
+    if(this.game.global.energy < 0 || this.game.global.energy > 200 || this.game.global.money < 0 || this.game.global.timePassed > 86400) {
       this.machine.destroy()
       this.state.start('GameOver')
     }

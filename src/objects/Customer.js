@@ -29,6 +29,7 @@ class Customer extends Clickable {
     this.addTimeToPass(this._timeCost * 0.2)
     let drink = this.game.global.coffeeCounter.getFirstAlive()
     if(drink) {
+      this.game.global.sS.play()
       this.game.global.energy -= this._energy
       this.addTimeToPass(this._timeCost)
       let pay = this._pays - this._state

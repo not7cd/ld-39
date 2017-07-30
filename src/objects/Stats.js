@@ -7,6 +7,9 @@ class StatsPanel extends Phaser.Group {
     // this.moneyText = this.game.add.bitmapText(7 + 100, 116 + 10, 'panelFont', 'Cash: ' + this.game.global.money, 5)
     // this.dayText = this.game.add.bitmapText(7, 116 + 10, 'panelFont', 'Day: 1', 5)
 
+    this.bmd = game.make.bitmapData();
+    this.bmd.load('energyBar');
+    this.bmd.setHSL(0.2);
     this.energyBar = this.game.add.sprite(37, 116, 'energyBar')
     this._fullEnergyBarWidth = this.energyBar.width
     this.cropRect = new Phaser.Rectangle(0, 0, this.energyBar.width, this.energyBar.height)
@@ -14,6 +17,13 @@ class StatsPanel extends Phaser.Group {
   }
 
   update() {
+    if(this.game.global.energy > 100) {
+      this.bmd.setHSL(0.2 + (this.game.global.energy - 100) / 200);
+    } else {
+      this.cropRect.width = this._fullEnergyBarWidth * this.game.global.energy / 100
+      this.energyBar.updateCrop()
+    }
+    this.energyBar.loadTexture(this.bmd)
     let timedate = new Date(this.game.global.timePassed * 1000)
     const time = timedate.toLocaleTimeString('en-US', {
       hour12: true,
@@ -26,8 +36,6 @@ class StatsPanel extends Phaser.Group {
 
     this.panelText.text = `Energy\nDay ${day} \t\t   Time ${time}\t\t   Cash $${this.game.global.money}`
     // console.log(this.energyBar.width * this.game.global.energy / 100);
-    this.cropRect.width = this._fullEnergyBarWidth * this.game.global.energy / 100
-    this.energyBar.updateCrop();
   }
 }
 

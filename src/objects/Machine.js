@@ -13,19 +13,22 @@ class Machine extends Clickable {
   }
 
   action() {
-    this.game.global.player.moveTo(this.game.input.x + 20, 63)
-    this.game.global.energy -= this._energyCost
-    this.game.global.money -= this._moneyCost
-    this.addTimeToPass(this._timeCost)
+    if(this.game.global.money > 0) {
+      this.game.global.mS.play()
+      this.game.global.player.moveTo(this.game.input.x + 20, 63)
+      this.game.global.energy -= this._energyCost
+      this.game.global.money -= this._moneyCost
+      this.addTimeToPass(this._timeCost)
 
-    // console.log(this.game.global.energy)
-    let rectangle = new Phaser.Rectangle(85, 40, 15, 60)
-    let p = new Phaser.Point()
-    rectangle.random(p)
-    p.floor()
-    let coffee = new Coffee(this.game, p.x, p.y)
-    // TODO: change this global nonsense
-    this.game.global.coffeeCounter.add(coffee)
+      // console.log(this.game.global.energy)
+      let rectangle = new Phaser.Rectangle(85, 40, 15, 60)
+      let p = new Phaser.Point()
+      rectangle.random(p)
+      p.floor()
+      let coffee = new Coffee(this.game, p.x, p.y)
+      // TODO: change this global nonsense
+      this.game.global.coffeeCounter.add(coffee)
+    }
   }
 }
 

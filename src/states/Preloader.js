@@ -15,6 +15,10 @@ class Preloader extends Phaser.State {
     this.load.image('energyBar', 'assets/images/energy-bar.png')
     this.load.bitmapFont('defaultFont', 'assets/fonts/font.png', 'assets/fonts/font.fnt')
     this.load.bitmapFont('panelFont', 'assets/fonts/panelFont.png', 'assets/fonts/font.fnt')
+
+    this.load.audio('machineSound', 'assets/sounds/machine.mp3');
+    this.load.audio('sellSound', 'assets/sounds/sell.mp3');
+    this.load.audio('drinkSound', 'assets/sounds/drink.mp3');
   }
 
   create() {
