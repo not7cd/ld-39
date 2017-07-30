@@ -6,7 +6,7 @@ class Coffee extends Clickable {
 
     this._energy = 16
     this._damage = 2
-    this._timeCost = 5 * 60 // [s]
+    this._timeCost = 10 * 60 // [s]
     // this._cost = 3
 
     this.game.stage.addChild(this)

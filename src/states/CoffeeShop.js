@@ -19,7 +19,7 @@ class CoffeeShop extends Phaser.State {
     this.game.time.events.loop(Phaser.Timer.SECOND * 3, () => this.game.global.timeToPass += 60, this)
 
     let background = this.add.sprite(0, 0, 'shopBackground');
-    let machine = new Machine(this.game, 120, 0)
+    this.game.machine = new Machine(this.game, 120, 0)
 
     this.game.global.coffeeCounter = this.game.add.group()
     this.game.global.customerQueue = this.game.add.group()
@@ -47,7 +47,7 @@ class CoffeeShop extends Phaser.State {
     this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING);
     this.game.global.coffeeCounter.sort('y', Phaser.Group.SORT_ASCENDING);
 
-    this.game.global.player.update()
+    // this.game.global.player.update()
 
     if(this.game.global.energy < 0) {
       this.state.start('GameOver')

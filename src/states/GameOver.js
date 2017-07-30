@@ -8,6 +8,8 @@ class GameOver extends Phaser.State {
     restart.inputEnabled = true
     restart.input.useHandCursor = true;
     restart.events.onInputDown.add(this.newGame, this)
+
+    this.game.global.player.destroy()
   }
 
   newGame() {
