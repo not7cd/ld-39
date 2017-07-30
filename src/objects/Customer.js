@@ -13,7 +13,6 @@ class Customer extends Clickable {
 
   action() {
     let drink = this.game.global.coffeeCounter.getFirstAlive()
-    console.log(drink);
     if(drink) {
       this.game.global.energy -= this._energy
       this.game.global.time += this._timeCost
@@ -21,13 +20,6 @@ class Customer extends Clickable {
       drink.destroy();
       this.destroy()
     }
-    // console.log(.RETURN_TOTAL);
-    // if(this.game.global.coffeeCounter.RETURN_TOTAL !== 0) {} else {
-    //   console.log('make coffee');
-    // }
-
-    // TODO: Pokazuj odjety koszt
-    // console.log(this.game.global.energy)
   }
 }
 
