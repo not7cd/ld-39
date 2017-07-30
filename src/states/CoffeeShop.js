@@ -18,13 +18,23 @@ class CoffeeShop extends Phaser.State {
     // let customer = new Customer(this.game, 20, 30, 'customer')
 
     // STATS
-    this.energyBar = this.add.sprite(10, 130, 'energyBar')
+    this.bottomPanel = this.add.sprite(0, 0, 'bottomPanel')
+    this.energyText = this.game.add.bitmapText(7, 116, 'panelFont', 'Energy', 5)
+    this.moneyText = this.game.add.bitmapText(7 + 100, 116 + 10, 'panelFont', 'Cash: ' + this.game.global.money, 5)
+    this.dayText = this.game.add.bitmapText(7, 116 + 10, 'panelFont', 'Day: 1', 5)
+    this.energyBar = this.add.sprite(37, 116, 'energyBar')
   }
   update() {
     if(Math.random() > 0.99) {
       console.log('createCustomer')
       this.customerFactory.createCustomer(this.game)
     }
+
+    this.dayText.text = 'Day 1'
+    // this.energyText.text = `Energy ${this.game.global.energy}`
+    this.moneyText.text = `Cash ${this.game.global.money}`
+
+
     this.game.debug.text(this.game.global.energy, 10, 20);
     this.game.debug.text(this.game.global.money, 10, 30);
     this.game.global.customerQueue.sort('y', Phaser.Group.SORT_ASCENDING);
