@@ -13,7 +13,7 @@ class Machine extends Clickable {
   }
 
   action() {
-    this.game.global.player.moveTo(158, 63)
+    this.game.global.player.moveTo(this.game.input.x + 20, 63)
     this.game.global.energy -= this._energyCost
     this.game.global.money -= this._moneyCost
 

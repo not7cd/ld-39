@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  background: #111;
   height: inherit;
   width: inherit;
   margin: 0px;

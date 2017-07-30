@@ -8,10 +8,10 @@ class CoffeeShop extends Phaser.State {
   create() {
     this.game.global = {
       maxEnergy: 100,
-      energy: 100,
+      energy: 100.0,
       money: 500,
       damage: 0,
-      time: 0
+      time: 0.0
     }
 
     let background = this.add.sprite(0, 0, 'shopBackground');
