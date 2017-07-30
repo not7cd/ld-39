@@ -10,10 +10,6 @@ class Machine extends Clickable {
 
 
     this.game.stage.addChild(this)
-
-    this.inputEnabled = true
-    // this.events.onInputOver.add(this.action, this)
-    this.events.onInputDown.add(this.action, this)
   }
 
   action() {

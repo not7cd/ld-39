@@ -1,5 +1,6 @@
 import Coffee from 'objects/Coffee'
 import Machine from 'objects/Machine'
+import Customer from 'objects/Customer'
 
 class CoffeeShop extends Phaser.State {
 
@@ -7,6 +8,8 @@ class CoffeeShop extends Phaser.State {
     let background = this.add.sprite(0, 0, 'shopBackground');
     // let coffee = new Coffee(this.game, 100, 50)
     let machine = new Machine(this.game, 120, 0)
+
+    let customer = new Customer(this.game, 20, 30, 'customer')
 
     this.game.global.coffeeCounter = this.game.add.group()
 

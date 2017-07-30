@@ -6,13 +6,10 @@ class Coffee extends Clickable {
 
     this._energy = 10
     this._damage = 2
-    this._timeCost = 5 * 60 // s
+    this._timeCost = 5 * 60 // [s]
     // this._cost = 3
 
-    this.inputEnabled = true
     this.game.stage.addChild(this)
-
-    this.events.onInputDown.add(this.action, this)
   }
 
   action() {
